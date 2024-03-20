@@ -1,25 +1,26 @@
-﻿namespace FizzBuzzTechChallenge
+﻿using FizzBuzzTechChallenge.Resolvers;
+using System.Reflection;
+
+namespace FizzBuzzTechChallenge
 {
     public class FizzBuzzService : IFizzBuzzService
     {
+        public IEnumerable<IResolver> resolvers;
+
+        public FizzBuzzService() {
+            Type resolverType = typeof(IResolver);
+
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            resolvers = assembly.GetTypes().Where(t => resolverType.IsAssignableFrom(t) && t.IsClass).Select(x => Activator.CreateInstance(x)).Cast<IResolver>();
+        }
+
         public string ResolveValue(int i)
         {
-            if (i % 15 == 0)
-            {
-                return("FizzBuzz");
-            }
-            else if (i % 5 == 0)
-            {
-                return "Buzz";
-            }
-            else if (i % 3 == 0)
-            {
-                return "Fizz";
-            }
-            else
-            {
-                return i.ToString();
-            }
+
+            var resolver = resolvers.First(x => x.Resolve(i) != null);
+
+            return resolver.Resolve(i);
+
         }
     }
 }

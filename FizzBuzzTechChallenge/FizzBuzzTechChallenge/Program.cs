@@ -1,2 +1,8 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using FizzBuzzTechChallenge;
+
+var fizzBuzzService = new FizzBuzzService();
+
+for (var i = 1; i <= 100; i++)
+{
+    Console.WriteLine(fizzBuzzService.ResolveValue(i));
+}
