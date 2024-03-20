@@ -36,7 +36,7 @@ namespace FizzBuzzTechChallengeTests
         public void FizzBuzzService_FactorsOf15ShouldReturnFizzBuzz()
         {
             var result = _fizzBuzzService.ResolveValue(15);
-            Assert.Equal("Buzz", result);
+            Assert.Equal("FizzBuzz", result);
         }
     }
 }
