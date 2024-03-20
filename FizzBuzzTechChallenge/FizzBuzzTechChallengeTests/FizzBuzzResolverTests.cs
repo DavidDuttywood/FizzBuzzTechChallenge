@@ -56,7 +56,7 @@ namespace FizzBuzzTechChallengeTests
             var _fizzBuzzResolver = new FizzbuzzResolver();
             var result = _fizzBuzzResolver.Resolve(15);
 
-            Assert.Equal("Fizzbuzz", result);
+            Assert.Equal("FizzBuzz", result);
         }
 
         [Fact]
