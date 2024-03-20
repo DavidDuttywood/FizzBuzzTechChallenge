@@ -1,10 +1,11 @@
 ﻿namespace FizzBuzzTechChallenge.Resolvers
+
 {
-    public class FizzBuzzBaseResolver
+    public class FizzResolver : IResolver
     {
         public string Resolve(int val)
         {
-            return val.ToString();
+            return val % 3 == 0 ? "Fizz" : null;
         }
     }
 }
