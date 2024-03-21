@@ -19,8 +19,12 @@ namespace FizzBuzzTechChallenge
 
         public string ResolveValue(int i)
         {
-            var resolver = resolvers.First(x => x.Resolve(i) != null);
-            return resolver.Resolve(i);
+            var resolver = resolvers.FirstOrDefault(x => x.Resolve(i) != null);
+            if(resolver != null)
+            {
+                return resolver.Resolve(i);
+            }
+            return i.ToString();
         }
     }
 }

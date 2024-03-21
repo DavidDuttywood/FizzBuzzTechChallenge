@@ -6,15 +6,6 @@ namespace FizzBuzzTechChallengeTests
     {
 
         [Fact]
-        public void FizzBuzzResolverTests_BaseResolverShouldStringifyInteger()
-        {
-            var _fizzBuzzResolver = new BaseResolver();
-            var result = _fizzBuzzResolver.Resolve(1);
-
-            Assert.Equal("1", result);
-        }
-
-        [Fact]
         public void FizzBuzzResolverTests_FizzResolver_FactorOf3ShouldReturnFizz()
         {
             var _fizzBuzzResolver = new FizzResolver();
